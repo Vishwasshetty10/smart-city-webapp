@@ -1,48 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body {
-  background-color: #f0f2f5;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background: white;
+  color: black;
   margin: 0;
-  padding: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  padding: 0;
 }
 
-.login-container, .signup-container, .output {
-  background-color: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
+.signup-container {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
-input {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0 20px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+.signup-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
+.input-field {
+  transition: all 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.input-field:focus {
+  border-color: black;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-signup {
+  transition: all 0.3s ease;
+}
+
+.btn-signup:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+}
+
+.btn-signup:active {
+  transform: translateY(0);
 }
 
 .note {
-  text-align: center;
   margin-top: 10px;
 }
