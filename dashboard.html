@@ -2,59 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart City App</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      background-color: #f0f2f5;
-      text-align: center;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-    button {
-      margin: 10px;
-      padding: 10px 25px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      background-color: #3498db;
-      color: white;
-      border-radius: 6px;
-    }
-    button:hover {
-      background-color: #2980b9;
-    }
-    .output {
-      margin-top: 30px;
-      padding: 15px;
-      background: #fff;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 18px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Smart City Explorer</h1>
-  <p>Select a category:</p>
+  <video autoplay muted loop id="bg-video">
+  <source src="background.mp4" type="video/mp4" />
+  Your browser does not support HTML5 video.
+</video>
 
-  <button onclick="showInfo(1)">Transport</button>
-  <button onclick="showInfo(2)">Hotels</button>
-  <button onclick="showInfo(3)">Markets</button>
-  <button onclick="showInfo(4)">Jobs</button>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader"></div>
+    <p>Loading Smart City App...</p>
+  </div>
 
-  <div class="output" id="output">Click a button to see details.</div>
+  <!-- Page Content -->
+  <div id="main-content" style="display: none;">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="logo">Smart City App</div>
+      <nav class="nav-links">
+        <a href="dashboard.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="index.html">Logout</a>
+      </nav>
+    </header>
 
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>Explore Your Smart City</h1>
+      <p class="subtitle">Discover travel, hotels, and shops in your city.</p>
+
+      <div class="button-group">
+        <button onclick="window.location.href='travel.html'">Travel</button>
+        <button onclick="showInfo(2)">Hotels</button>
+        <button onclick="showInfo(3)">Markets</button>
+      </div>
+
+      
+    </main>
+  </div>
+
+  <!-- Script -->
   <script>
+    window.addEventListener("load", function () {
+      document.getElementById("loading-screen").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    });
+
     function showInfo(choice) {
       const info = {
-        1: "🚇 Metro every 10 mins, buses ₹10–50, use Ola/Uber.",
         2: "🏨 Hotels: Comfort Inn, Green View, Grand Palace.",
-        3: "🛍️ Central Mall, Old City Market, Daily Mart.",
-        4: "💼 Visit Job Fair, use Naukri, LinkedIn, Indeed."
+        3: "🛍️ Central Mall, Old City Market, Daily Mart."
       };
       document.getElementById("output").innerText = info[choice] || "Please choose a valid option.";
     }
