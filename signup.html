@@ -3,58 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Signup | Smart City App</title>
-  <link rel="stylesheet" href="signup.css" />
+  <title>Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="signup.css">
 </head>
-<body>
-  <div class="signup-container">
-    <h2>Create Account</h2>
-    <form id="signup-form">
-      <label for="fullname">Full Name</label>
-      <input type="text" id="fullname" placeholder="Enter your full name" required />
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Enter your email" required />
-      <label for="username">Username</label>
-      <input type="text" id="username" placeholder="Choose a username" required />
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Create a password" required />
-      <button type="submit">Sign Up</button>
-      <p class="note">Already have an account? <a href="index.html">Login here</a></p>
-    </form>
-    <p id="error-msg" style="color: red; margin-top: 10px;"></p>
+<body class="min-h-screen flex items-center justify-center bg-white text-black">
+
+  <div class="signup-container bg-white rounded-2xl overflow-hidden shadow-lg w-full max-w-md">
+    <div class="relative h-48 bg-black flex items-center justify-center">
+      <div class="absolute inset-0 bg-white opacity-10"></div>
+      <div class="relative z-10 text-center px-6">
+        <h1 class="text-3xl font-bold text-white">Join Us</h1>
+        <p class="text-white opacity-90 mt-2">Create your account</p>
+      </div>
+      <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
+        <div class="bg-white p-2 rounded-full shadow-lg">
+          <div class="bg-black w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl">
+            <i class="fas fa-user-plus"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-12 pb-8 px-8">
+      <form id="signup-form" class="space-y-4">
+        <div>
+          <label for="fullname" class="block text-sm font-medium text-black mb-1">Full Name</label>
+          <input type="text" id="fullname" required placeholder="Enter your full name"
+            class="input-field w-full p-3 border border-gray-400 rounded-md bg-white text-black">
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium text-black mb-1">Email</label>
+          <input type="email" id="email" required placeholder="Enter your email"
+            class="input-field w-full p-3 border border-gray-400 rounded-md bg-white text-black">
+        </div>
+        <div>
+          <label for="username" class="block text-sm font-medium text-black mb-1">Username</label>
+          <input type="text" id="username" required placeholder="Choose a username"
+            class="input-field w-full p-3 border border-gray-400 rounded-md bg-white text-black">
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-black mb-1">Password</label>
+          <input type="password" id="password" required placeholder="Create a password"
+            class="input-field w-full p-3 border border-gray-400 rounded-md bg-white text-black">
+        </div>
+        <button type="submit"
+          class="btn-signup w-full py-3 px-4 bg-black text-white rounded-md font-medium hover:shadow-lg transition-all">
+          Sign Up
+        </button>
+        <p class="note text-sm text-center mt-4 text-gray-600">
+          Already have an account?
+          <a href="index.html" class="text-black underline hover:text-gray-800">Login here</a>
+        </p>
+        <p id="error-msg" class="text-sm text-red-600 mt-2 text-center"></p>
+      </form>
+    </div>
   </div>
 
-  <!-- Firebase SDK (compat version) -->
-<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyCStWhNWez0NU85okfarLtd94fKo9sdfBY",
-    authDomain: "smart-city-app-78637.firebaseapp.com",
-    projectId: "smart-city-app-78637",
-    storageBucket: "smart-city-app-78637.appspot.com",
-    messagingSenderId: "148025701749",
-    appId: "1:148025701749:web:559b528b31540b4a548f3c",
-    measurementId: "G-M9B7VJPPB1"
-  };
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCStWhNWez0NU85okfarLtd94fKo9sdfBY",
+      authDomain: "smart-city-app-78637.firebaseapp.com",
+      projectId: "smart-city-app-78637",
+      storageBucket: "smart-city-app-78637.appspot.com",
+      messagingSenderId: "148025701749",
+      appId: "1:148025701749:web:559b528b31540b4a548f3c",
+      measurementId: "G-M9B7VJPPB1"
+    };
 
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
 
-  document.getElementById("signup-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    document.getElementById("signup-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
-    auth.createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        window.location.href = "index.html"; // ✅ redirect works now
-      })
-      .catch(error => {
-        document.getElementById("error-msg").textContent = "❌ " + error.message;
-      });
-  });
-</script>
-
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          window.location.href = "index.html";
+        })
+        .catch(error => {
+          document.getElementById("error-msg").textContent = "❌ " + error.message;
+        });
+    });
+  </script>
 </body>
 </html>
