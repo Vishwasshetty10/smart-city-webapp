@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Smart City App</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Smart City Login</h2>
+    <form id="login-form">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required />
+      <button type="submit">Login</button>
+      <p class="note">Don't have an account? <a href="signup.html">Sign up</a></p>
+    </form>
+    <p id="error-msg" style="color: red; margin-top: 10px;"></p>
+  </div>
+
+  <!-- Firebase SDK (compat version) -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const firebaseConfig = {
+        apiKey: "AIzaSyCStWhNWez0NU85okfarLtd94fKo9sdfBY",
+        authDomain: "smart-city-app-78637.firebaseapp.com",
+        projectId: "smart-city-app-78637",
+        storageBucket: "smart-city-app-78637.appspot.com",
+        messagingSenderId: "148025701749",
+        appId: "1:148025701749:web:559b528b31540b4a548f3c",
+        measurementId: "G-M9B7VJPPB1"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+
+      const loginForm = document.getElementById("login-form");
+      const errorMsg = document.getElementById("error-msg");
+
+      loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        auth.signInWithEmailAndPassword(email, password)
+          .then(() => {
+            errorMsg.textContent = "";
+            window.location.href = "index.html";
+          })
+          .catch(error => {
+            errorMsg.textContent = "❌ " + error.message;
+          });
+      });
+    });
+  </script>
+</body>
+</html>
