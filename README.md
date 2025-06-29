@@ -18,15 +18,22 @@ Smart City WebApp is a user-friendly platform that simplifies city exploration f
 ## 📷 Screenshots
 
 
+- **Login Page**
+  
 ![Screenshot 2025-06-29 124603](https://github.com/user-attachments/assets/e44778c6-51e2-4792-bf41-6a1912d8e2da)
+
+- **Dashboard**  
+
 ![Screenshot 2025-06-29 124651](https://github.com/user-attachments/assets/222fc9f4-fe3a-4b98-8eb6-77eae0afb619)
+
+- **Travel Page**  
 ![Screenshot 2025-06-29 124723](https://github.com/user-attachments/assets/882d992c-2fc7-48f3-854e-8a6568ac7c98)
 
 
 
-## 🧑‍💻 Technologies Used
+## ⚙️ Tech Stack
 
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Backend**: Firebase Authentication
-- **Design**: Custom UI with animations and images
-
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Backend/Auth:** Firebase Authentication
+- **Deployment:** Static hosting (e.g., Firebase Hosting or GitHub Pages)
+- **Design:** Custom CSS with modern UI components
