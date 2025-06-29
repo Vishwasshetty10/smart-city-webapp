@@ -37,3 +37,27 @@ Smart City WebApp is a user-friendly platform that simplifies city exploration f
 - **Backend/Auth:** Firebase Authentication
 - **Deployment:** Static hosting (e.g., Firebase Hosting or GitHub Pages)
 - **Design:** Custom CSS with modern UI components
+
+
+## 🔮 Planned Features
+
+-> 🗺️ Google Maps integration
+
+-> 💬 Hotel and shop reviews
+
+-> 📊 Admin dashboard for service providers
+
+-> 🌓 Dark Mode toggle
+
+-> 🧭 Navigation assistant with route suggestions
+
+
+
+## 📬 Contact
+Made by Vishwas Shetty,
+
+For any feedback or feature requests, feel free to open an issue on the repository.
+
+
+
+
