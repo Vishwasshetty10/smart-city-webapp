@@ -58,6 +58,3 @@ Made by Vishwas Shetty,
 
 For any feedback or feature requests, feel free to open an issue on the repository.
 
-
-
-
