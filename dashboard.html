@@ -7,10 +7,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Background Video -->
   <video autoplay muted loop id="bg-video">
-  <source src="background.mp4" type="video/mp4" />
-  Your browser does not support HTML5 video.
-</video>
+    <source src="background.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
 
   <!-- Loading Screen -->
   <div id="loading-screen">
@@ -34,31 +35,113 @@
     <!-- Main Content -->
     <main class="main-content">
       <h1>Explore Your Smart City</h1>
-      <p class="subtitle">Discover travel, hotels, and shops across the globe.</p>
+      <p class="subtitle">Discover travel, hotels, and shops in your city.</p>
 
       <div class="button-group">
-        <button onclick="window.location.href='travel.html'">Travel</button>
+        <button onclick="loadTravel()">Travel</button>
         <button onclick="showInfo(2)">Hotels</button>
         <button onclick="showInfo(3)">Markets</button>
       </div>
 
-      
+      <div id="output" class="output"></div>
     </main>
   </div>
 
+  <!-- Custom Loading Overlay (for Travel) -->
+  <div id="travel-loading-overlay" style="display: none;">
+    <div class="container">
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <div class="ring"></div>
+      <span class="loading">Loading Travel Page...</span>
+    </div>
+  </div>
+
+  <style>
+    /* Import ring loader from loading.css */
+    #travel-loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #011015;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .ring {
+      width: 200px;
+      height: 200px;
+      border: 0px solid #011015;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .ring:nth-child(1) {
+      border-bottom-width: 8px;
+      border-color: rgb(255, 0, 255);
+      animation: rotate1 2s linear infinite;
+    }
+
+    .ring:nth-child(2) {
+      border-right-width: 8px;
+      border-color: rgb(0, 247, 255);
+      animation: rotate2 2s linear infinite;
+    }
+
+    .ring:nth-child(3) {
+      border-top-width: 8px;
+      border-color: rgb(0, 255, 13);
+      animation: rotate3 2s linear infinite;
+    }
+
+    .loading {
+      color: white;
+      margin-top: 220px;
+      font-size: 20px;
+    }
+
+    @keyframes rotate1 {
+      0% { transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg); }
+      100% { transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg); }
+    }
+
+    @keyframes rotate2 {
+      0% { transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg); }
+      100% { transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg); }
+    }
+
+    @keyframes rotate3 {
+      0% { transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg); }
+      100% { transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg); }
+    }
+  </style>
+
   <!-- Script -->
   <script>
+    // Initial loader for dashboard
     window.addEventListener("load", function () {
       document.getElementById("loading-screen").style.display = "none";
       document.getElementById("main-content").style.display = "block";
     });
-
-    function showInfo(choice) {
-      const info = {
-        2: "🏨 Hotels: Comfort Inn, Green View, Grand Palace.",
-        3: "🛍️ Central Mall, Old City Market, Daily Mart."
-      };
-      document.getElementById("output").innerText = info[choice] || "Please choose a valid option.";
+    
+    // Travel Button Handler
+    function loadTravel() {
+      document.getElementById("travel-loading-overlay").style.display = "flex";
+      setTimeout(() => {
+        window.location.href = "travel.html";
+      }, 2000);
     }
   </script>
 </body>
