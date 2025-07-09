@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 * {
@@ -10,10 +11,16 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #504f4f;
   color: #ffffff;
+  opacity: 0;
+  animation: fadeInBody 1.2s ease-in forwards;
+}
+
+@keyframes fadeInBody {
+  to { opacity: 1; }
 }
 
 .hero {
-  background: url('https://images.unsplash.com/photo-1562920618-c427d9252d7a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bmF0dXJlJTIwdHJhdmVsfGVufDB8fDB8fHww') center/cover no-repeat;
+  background: url('https://images.unsplash.com/photo-1562920618-c427d9252d7a?fm=jpg&q=60&w=3000') center/cover no-repeat;
   color: rgb(0, 0, 0);
   text-align: center;
   padding: 100px 20px;
@@ -52,11 +59,16 @@ body {
   border: none;
   border-radius: 25px;
   outline: none;
-  transition: box-shadow 0.3s;
+  transition: all 0.3s ease;
 }
 
 .hero input:focus {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.hero input:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
 .destinations {
@@ -76,6 +88,12 @@ body {
   transform: translateY(40px);
   opacity: 0;
   animation: slideUp 0.8s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card:nth-child(1) { animation-delay: 0.2s; }
