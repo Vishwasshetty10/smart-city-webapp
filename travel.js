@@ -1,5 +1,6 @@
+
 const destinations = [
-   {
+  {
     name: "India",
     description: "A vibrant land of rich culture, diverse traditions, and timeless heritage.",
     image: "https://t3.ftcdn.net/jpg/05/10/94/30/360_F_510943091_Au83xxJTZrDEv9BPrxTINE7F9ZIlxa0p.jpg"
@@ -27,17 +28,17 @@ const destinations = [
   {
     name: "South Africa",
     description: "Scenic coastal city with mountains and wildlife.",
-    image: "https://images.unsplash.com/photo-1585061528750-3baca2cb6a10?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNhcGUlMjB0b3dufGVufDB8fDB8fHww"
+    image: "https://images.unsplash.com/photo-1585061528750-3baca2cb6a10?fm=jpg&q=60&w=3000"
   },
   {
-    name: "Europ",
+    name: "Europe",
     description: "A culturally rich continent known for its historic cities, diverse cuisines, and stunning architecture.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkFvqjpdj1KNrIweAMqusXuNd2WrQaHQwYWQ&s"
   },
   {
-    name: "Australia ",
+    name: "Australia",
     description: "A land of stunning beaches, unique wildlife, and vibrant cities like Sydney and Melbourne.",
-    image: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXVzdHJhbGlhfGVufDB8fDB8fHww"
+    image: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?fm=jpg&q=60&w=3000"
   }
 ];
 
